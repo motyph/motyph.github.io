@@ -10,20 +10,55 @@
 
         <title>{{ page.title }}</title>
         
+        {% stylesheet foundation %}
+        {% stylesheet prism %}
         <link rel="stylesheet" type="text/css" href="/css/main.css">
     </head>
     <body>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-            </ul>
-        </nav>
-        
-        <div class="container">
-            {{ content }}
+        <div class="fixed">
+            <nav class="top-bar">
+                <ul class="title-area">
+                    <li class="name"></li>
+
+                    <a href="/" class="centered-title">
+                        <img src="{% asset_path profile_small.jpg %}" width="30px" height="30px" alt="profile" class="avatar">
+                        <div class="secondary">MOTYPH</div>
+                        <div class="primary">motyph.github.io</div>
+                    </a>
+
+                    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+                </ul>
+
+                <section class="top-bar-section">
+                    <ul class="left-menu">
+                        <li><a href="/archive.html">archive</a></li>
+                        <li><a href="/projects.html">projects</a></li>
+                        <li><a href="/about.html">about</a></li>
+                    </ul>
+                </section>
+            </nav>
         </div>
+        
+        {{ content }}
 
         <footer>
+            <div class="row">
+                <div class="large-12 columns">
+                    Copyright 2016 MOTYPH, LLC
+                    |
+                    <a href="http://twitter.com/motyph">@motyph</a><br/>
+                </div>
+            </div>
         </footer>
+
+        {% javascript application %}
+        <script>
+            $(document).foundation();
+        </script>
+
+        <!--[if lt IE 7 ]>
+    	    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+    	    <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+        <![endif]-->
     </body>
 </html>
